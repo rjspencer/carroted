@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Group.destroy_all
+Student.destroy_all
+
+Group.create(name: "P1 - Algebra 1")
+Group.create(name: "P2 - Geometry")
+Group.create(name: "P3 - Pre-Calculus")
+Group.create(name: "P4 - Geometry")
+Group.create(name: "P5 - Algebra 1")
+Group.create(name: "P6 - Algebra 2")
+
+Group.all.each do |group|
+  20.times do
+    group.students << Student.create(name: Faker::Name.name)
+  end
+end
