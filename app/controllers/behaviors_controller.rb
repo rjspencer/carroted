@@ -5,7 +5,8 @@ class BehaviorsController < ApplicationController
   end
 
   def create
+    p params
     Behavior.create(params)
-    redirect_to :new_behavior
+    return [].to_json
   end
 end

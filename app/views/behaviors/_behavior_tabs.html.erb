@@ -1,17 +1,21 @@
 <dl class="tabs" data-tab>
-  <dd class="active"><a href="#carrot">Carrot</a></dd>
-  <dd><a href="#stick">Stick</a></dd>
+  <dd class="active"><a href="#carrot" style="background: #43AC6A; color: white;" >Carrot</a></dd>
+  <dd><a href="#stick" style="background: #f04124; color: white;" >Stick</a></dd>
 </dl>
 
 <div class="tabs-content">
   <div class="content active" id="carrot">
+    <ul class="large-block-grid-6 medium-block-grid-4 small-block-grid-2">
     <% ["Respectful", "Responsible", "Safe", "Genius"].each do |carrot| %>
-      <a href="#" class="large-2 columns success button"><%= carrot %></a>
+      <li><div class="success button radius" style="width: 100%"><%= carrot %></div></li>
     <% end %>
+    </ul>
   </div>
   <div class="content" id="stick">
+    <ul class="large-block-grid-6 medium-block-grid-4 small-block-grid-2">
     <% ["Talking", "Fighting", "Vandalism", "Smart Ass"].each do |stick| %>
-      <a href="#" class="large-2 columns alert button"><%= stick %></a>
+      <li><div class="alert button radius" style="width: 100%"><%= stick %></div></li>
     <% end %>
+    </ul>
   </div>
 </div>
