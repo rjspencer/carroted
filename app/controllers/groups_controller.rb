@@ -6,6 +6,9 @@ class GroupsController < ApplicationController
 
   def behaviors
     group = Group.find params[:id]
-    render json: group.behaviors
+    return [].to_json unless group
+
+    todays_behaviors = group.behaviors.where "created_at > ?", Date.today
+    render json: todays_behaviors
   end
 end
