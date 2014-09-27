@@ -16,7 +16,7 @@ Group.create(name: "P4 - Geometry")
 Group.create(name: "P5 - Algebra 1")
 Group.create(name: "P6 - Algebra 2")
 
-behavior_actions = %w(talking fighting horseplay vandalism)
+behavior_actions = Behavior::CARROTS + Behavior::STICKS
 status = %w(open in_progress resolved)
 Group.all.each do |group|
   20.times do
@@ -26,7 +26,7 @@ Group.all.each do |group|
   rand(10).times do
     Behavior.create(
       group_id: group.id,
-      student_id: group.students.sample,
+      student_id: group.students.sample.id,
       action: behavior_actions.sample,
       status: status.sample
     )

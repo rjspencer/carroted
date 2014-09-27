@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post "behaviors", to: "behaviors#create"
 
   get "groups/:id/students", to: "groups#students", as: "students_for_group"
-  get "groups/:id/behaviors", to: "groups#behaviors", as: "behaviors_for_group"
+  get "groups/:id/students_with_behaviors", to: "groups#students_with_behaviors"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

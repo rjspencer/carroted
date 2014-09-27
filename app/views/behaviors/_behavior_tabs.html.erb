@@ -6,15 +6,15 @@
 <div class="tabs-content">
   <div class="content active" id="carrot">
     <ul class="large-block-grid-6 medium-block-grid-4 small-block-grid-2">
-    <% ["Respectful", "Responsible", "Safe", "Genius"].each do |carrot| %>
-      <li><div class="success button radius" style="width: 100%"><%= carrot %></div></li>
+    <% carrots.each do |carrot| %>
+      <li><div class="success button radius" style="width: 100%"><%= carrot.camelize %></div></li>
     <% end %>
     </ul>
   </div>
   <div class="content" id="stick">
     <ul class="large-block-grid-6 medium-block-grid-4 small-block-grid-2">
-    <% ["Talking", "Fighting", "Vandalism", "Smart Ass"].each do |stick| %>
-      <li><div class="alert button radius" style="width: 100%"><%= stick %></div></li>
+    <% sticks.each do |stick| %>
+      <li><div class="alert button radius" style="width: 100%"><%= stick.camelize %></div></li>
     <% end %>
     </ul>
   </div>
