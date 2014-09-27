@@ -1,10 +1,21 @@
-<form>
-  <select>
-  <% @groups.each do |group| %>
-    <option value="<%= group.id %>"><%= group.name %></option>
-    <% end %>
-  </select>
-</form>
+<div class="large-5 columns">
+  <form id="groups-selector">
+    <select>
+      <option value="" disabled selected>Select a class</option>
+      <% @groups.each do |group| %>
+        <option value="<%= group.id %>"><%= group.name %></option>
+      <% end %>
+    </select>
+  </form>
+  <form id="students-selector">
+    <select>
+    </select>
+  </form>
+</div>
+<div id="behaviors-list" class="large-7 columns">
+  <ul>
+  </ul>
+</div>
 
 <dl class="tabs" data-tab>
   <dd class="active"><a href="#panel1">Carrot</a></dd>
