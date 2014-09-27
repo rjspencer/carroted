@@ -1,0 +1,7 @@
+<form>
+  <select>
+  <% @groups.each do |group| %>
+    <option value="<%= group.id %>"><%= group.name %></option>
+    <% end %>
+  </select>
+</form>
