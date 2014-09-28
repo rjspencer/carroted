@@ -1,6 +1,12 @@
-$(document).ready(function() {
-  //alert("ready");
+$(document).ready( function() {
+  $('.tabs').hide();
+  $('.tabs-content').hide();
+  if( $('.alert-box').text() == "")
+    $('.alert-box').hide();
+  
   $("#groups-selector").on("change", "select", function() {
+    $('.tabs').hide();
+    $('.tabs-content').hide();
     var id = $(this).val();
     $.get("/groups/" + id + "/students", function(data) {
       $("#students-selector select").empty();
@@ -25,20 +31,29 @@ $(document).ready(function() {
     });
   });
 
+  $("#students-selector").on("change", "select", function() {
+    $('.tabs').show();
+    $('.tabs-content').show();
+  });
+  
   $(".tabs-content").on("click", ".button", function() {
-//     $('#confirmationModal').foundation('reveal', 'open');
-    behavior_report = {group_id: $("#groups-selector option:selected").val(), student_id: $("#students-selector option:selected").val(), action: $(this).text(), status: "open"};
-    console.log(behavior_report);
+    behavior_report = {group_id: $("#groups-selector option:selected").val(), student_id: $("#students-selector option:selected").val(), behavioral_action: $(this).text(), status: "open"};
     request = $.post( "/behaviors", behavior_report );
-    request.done( function() {
-      $('#confirmationModal').foundation('reveal', 'close');
+    request.done( function(id) {
+      $(".alert-box").show().html("<b>Submitted: </b>" + $("#students-selector option:selected").text() + " reported for " + behavior_report.behavioral_action + ".<a href='' id='" + id + "' class='close'>CANCEL</a>");
+      setTimeout(function() {$(".alert-box").hide()}, 4000);                           
     });
   });
-//   $("#confirmationModal").on("click", "a", function() {
-//     behavior_report = "";
-//     request = $.post( "/behaviors", behavior_report );
-//     request.done( function() {
-//       $('#confirmationModal').foundation('reveal', 'close');
-//     });
-//   });
+  
+  $(".alert-box").on("click", "a.close", function() {
+    $.ajax({
+      url: "/behaviors",
+      type: 'DELETE',
+      data: {id: $(this).attr("id")},
+      success: function(result) {
+          $('.alert-box').hide();
+      }
+    });
+  });
+
 });

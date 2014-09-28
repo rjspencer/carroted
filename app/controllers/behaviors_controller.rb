@@ -5,8 +5,12 @@ class BehaviorsController < ApplicationController
   end
 
   def create
-    p params
-    Behavior.create(params)
-    return [].to_json
+    behavior = Behavior.create(group_id: params['group_id'], student_id: params['student_id'], action: params['behavioral_action'], status: params['status'])
+    render json: behavior.id
+  end
+  
+  def delete
+    Behavior.find(params['id']).destroy
+    render nothing: true
   end
 end
