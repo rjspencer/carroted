@@ -12,24 +12,9 @@
   </head>
 
   <body>
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="#">Carrot</a></h1>
-        </li>
-      </ul>
-
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-        </ul>
-
-        <!-- Left Nav Section -->
-        <ul class="left">
-        </ul>
-      </section>
-    </nav>
-    <div data-alert class="alert-box info radius" style="display: none;"></div>
+    <img src="<%=asset_path 'logo.png'%>" style="height: 50px; margin: 5px; margin-left: 15px;" />
+    <hr>
+    <div data-alert class="alert-box info radius" style="display: none; position: fixed; top: 0px; width: 100%; height: auto; z-index:50;"></div>
     <br>
     <%= yield %>
     <%= javascript_include_tag "application" %>
