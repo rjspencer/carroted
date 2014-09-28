@@ -13,9 +13,17 @@ class BehaviorsController < ApplicationController
     Behavior.find(params['id']).destroy
     render nothing: true
   end
+  
+  def status_update
+    p params
+    behavior = Behavior.find(params["id"])
+    behavior.status = "resolved"
+    behavior.save
+    render nothing: true
+  end
 
   def admin
-    @behaviors = Behavior.where("status != 'resolved'").order(:created_at)
+    @behaviors = Behavior.where("status != 'resolved'").order("created_at desc")
     render "admin"
   end
 end

@@ -1,3 +1,4 @@
+<div class="row">
 <table id="admin" role="grid">
   <caption>Admin Dashboard</caption>
   <tr>
@@ -5,20 +6,28 @@
     <th>Class</th>
     <th>Behavior</th>
     <th>Time Logged</th>
-    <th>Status</th>
+    <th>Resolve</th>
   </tr>
   <% @behaviors.each do |behavior| %>
     <tr id="row_<%=behavior.id%>">
       <td><%= behavior.student.name %></td>
       <td><%= behavior.group.name %></td>
-      <td><%= behavior.action %></td>
+      <% if behavior.is_carrot? %>
+      <td style="font-style: bold; color: green;"><b><%= behavior.action.upcase %></td>
+      <% else %>
+      <td style="font-style: bold; color: red;"><b><%= behavior.action.upcase %></td>
+      <% end %>
       <td><%= behavior.created_at.strftime "%b %e, %Y %I:%M%P" %></td>
       <td>
-        <div class="switch round large">
-          <input id="behavior_id_<%= behavior.id %>" type="checkbox">
-          <label for="behavior_id_<%= behavior.id %>"></label>
-        </div>
+        <div id="<%= behavior.id %>" class="button tiny round">&#x2713;</div>
+        
       </td>
     <tr>
   <% end %>
 </table>
+</div>
+<script>
+  setInterval( function() {
+    location.reload();
+  }, 5000);
+</script>

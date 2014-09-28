@@ -6,6 +6,6 @@ class Behavior < ActiveRecord::Base
   belongs_to :student
 
   def is_carrot?
-    CARROTS.include? action
+    CARROTS.include? action.downcase
   end
 end

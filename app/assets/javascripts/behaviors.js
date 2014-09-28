@@ -19,7 +19,6 @@ $(document).ready( function() {
     $.get("/groups/" + id + "/students_with_behaviors", function(data) {
       var behavior_list = $("#behaviors-list")
       behavior_list.empty();
-      behavior_list.append("<h2 style='text-align:center'>Students needing attention</h2>");
       $.each(data, function(i, student) {
         if(student.carrot) {
           var action_color = "#43ac6a"; // foundation button success color
@@ -27,7 +26,6 @@ $(document).ready( function() {
           var action_color = "#f04124"; // foundation button alert color
         }
 
-        //$("#behaviors-list h2").css("visibility","visible");
         behavior_list.append("<h4 class='large-6 columns' style='background:" + action_color + ";'>" + student.name + "</h4><br>" )
       });
     });
@@ -57,10 +55,17 @@ $(document).ready( function() {
       }
     });
   });
-
-  $("#admin input").change(function() {
-    if(this.checked) {
-      $(this).parent().parent().parent().fadeOut("slow", function() { });
-    }
+  
+  $("#admin").on("click", ".button", function() {
+    $.ajax({
+      url: "/behaviors/admin",
+      type: 'PUT',
+      data: {id: $(this).attr("id")},
+      success: function(result) {
+          location.reload();
+      }
+    });
+    
   });
+
 });
