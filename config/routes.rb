@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  get "behaviors/admin", to: "behaviors#admin"
   get "behaviors/new", to: "behaviors#new", as: "new_behavior"
   post "behaviors", to: "behaviors#create"
   delete "behaviors", to: "behaviors#delete"

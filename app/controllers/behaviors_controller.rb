@@ -8,9 +8,14 @@ class BehaviorsController < ApplicationController
     behavior = Behavior.create(group_id: params['group_id'], student_id: params['student_id'], action: params['behavioral_action'], status: params['status'])
     render json: behavior.id
   end
-  
+
   def delete
     Behavior.find(params['id']).destroy
     render nothing: true
+  end
+
+  def admin
+    @behaviors = Behavior.where("status != 'resolved'").order(:created_at)
+    render "admin"
   end
 end

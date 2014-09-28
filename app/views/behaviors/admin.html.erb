@@ -1,0 +1,24 @@
+<table id="admin" role="grid">
+  <caption>Admin Dashboard</caption>
+  <tr>
+    <th>Student Name</th>
+    <th>Class</th>
+    <th>Behavior</th>
+    <th>Time Logged</th>
+    <th>Status</th>
+  </tr>
+  <% @behaviors.each do |behavior| %>
+    <tr id="row_<%=behavior.id%>">
+      <td><%= behavior.student.name %></td>
+      <td><%= behavior.group.name %></td>
+      <td><%= behavior.action %></td>
+      <td><%= behavior.created_at.strftime "%b %e, %Y %I:%M%P" %></td>
+      <td>
+        <div class="switch round large">
+          <input id="behavior_id_<%= behavior.id %>" type="checkbox">
+          <label for="behavior_id_<%= behavior.id %>"></label>
+        </div>
+      </td>
+    <tr>
+  <% end %>
+</table>

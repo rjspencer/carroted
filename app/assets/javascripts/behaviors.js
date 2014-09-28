@@ -56,4 +56,9 @@ $(document).ready( function() {
     });
   });
 
+  $("#admin input").change(function() {
+    if(this.checked) {
+      $(this).parent().parent().parent().fadeOut("slow", function() { });
+    }
+  });
 });
