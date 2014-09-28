@@ -9,7 +9,11 @@
     <th>Resolve</th>
   </tr>
   <% @behaviors.each do |behavior| %>
+  <% if Time.now.to_i - 120 > behavior.created_at.to_i %>
     <tr id="row_<%=behavior.id%>">
+  <% else %>
+    <tr id="row_<%=behavior.id%>" style="background: #ffef6e">
+  <% end %>
       <td><%= behavior.student.name %></td>
       <td><%= behavior.group.name %></td>
       <% if behavior.is_carrot? %>

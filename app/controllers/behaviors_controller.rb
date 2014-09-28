@@ -16,7 +16,6 @@ class BehaviorsController < ApplicationController
   end
   
   def status_update
-    p params
     behavior = Behavior.find(params["id"])
     behavior.status = "resolved"
     behavior.save
