@@ -5,7 +5,7 @@ class StudentMailer < ActionMailer::Base
     email_address = "6306678280@tmomail.net"
     #email_address = "abhi.pillai1@gmail.com"
     body = if Behavior::CARROTS.include?(behavior_action)
-             "Good job!"
+             "Good job! Keep it up!"
            else
              "Let's work on this!"
            end
