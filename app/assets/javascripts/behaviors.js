@@ -37,7 +37,7 @@ $(document).ready( function() {
   });
   
   $(".tabs-content").on("click", ".button", function() {
-    behavior_report = {group_id: $("#groups-selector option:selected").val(), student_id: $("#students-selector option:selected").val(), behavioral_action: $(this).text(), status: "open"};
+    behavior_report = {group_id: $("#groups-selector option:selected").val(), student_id: $("#students-selector option:selected").val(), behavioral_action: $(this).text().toLowerCase(), status: "open"};
     request = $.post( "/behaviors", behavior_report );
     request.done( function(id) {
       $(".alert-box").show().html("<b>Submitted: </b>" + $("#students-selector option:selected").text() + " reported for " + behavior_report.behavioral_action + ".<a href='' id='" + id + "' class='close'>CANCEL</a>");
