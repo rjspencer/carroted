@@ -2,8 +2,8 @@ class ParentMailer < ActionMailer::Base
   default from: "classroomcarrot@gmail.com"
 
   def report_behavior(student_name, behavior_action)
-    email_address = "6306678280@tmomail.net"
-    #email_address = "abhi.pillai1@gmail.com"
+    #email_address = "6306678280@tmomail.net"
+    email_address = "abhi.pillai1@gmail.com"
     body = if Behavior::CARROTS.include?(behavior_action)
              "#{student_name} got a Carrot for #{behavior_action}. Very proud of her!"
            else

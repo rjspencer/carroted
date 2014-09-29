@@ -6,8 +6,8 @@ class BehaviorsController < ApplicationController
 
   def create
     behavior = Behavior.create(group_id: params['group_id'], student_id: params['student_id'], action: params['behavioral_action'], status: params['status'])
-    StudentMailer.report_behavior(behavior.action).deliver
-    ParentMailer.report_behavior(behavior.student.name, behavior.action).deliver
+#     StudentMailer.report_behavior(behavior.action).deliver
+#     ParentMailer.report_behavior(behavior.student.name, behavior.action).deliver
     render json: behavior.id
   end
 
