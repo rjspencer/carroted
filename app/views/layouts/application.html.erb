@@ -13,9 +13,12 @@
 
   <body>
     <img src="<%=asset_path 'logo.png'%>" style="height: 50px; margin: 5px; margin-left: 15px;" />
+    <div style="float: right;">
+      <a href="/teacher" class="button radius success">DEMO - TEACHER</a>
+      <a href="/admin" class="button radius success">DEMO - ADMINISTRATOR</a>
+    </div>
     <hr>
     <div data-alert class="alert-box info radius" style="display: none; position: fixed; top: 0px; width: 100%; height: auto; z-index:50;"></div>
-    <br>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
