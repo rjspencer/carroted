@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
-
+#   root 'welcome#index'
+  get '/', to: redirect('http://www.classcarrot.co')
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get "admin", to: "behaviors#admin"
