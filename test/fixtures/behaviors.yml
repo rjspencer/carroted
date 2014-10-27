@@ -1,13 +1,1 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  group_id: 1
-  student_id: 1
-  action: MyString
-  status: MyString
-
-two:
-  group_id: 1
-  student_id: 1
-  action: MyString
-  status: MyString
