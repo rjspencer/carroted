@@ -43,7 +43,6 @@ Rails.application.configure do
     enable_starttls_auto: true}
   config.action_mailer.perform_deliveries = true
 
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

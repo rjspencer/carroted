@@ -1,4 +1,6 @@
 class BehaviorsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @groups = Group.all
     render "new"
